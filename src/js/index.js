@@ -5,26 +5,19 @@ const emailDoUsuario = document.getElementById("email-usuario")
 
 const telefoneDoUsuario = document.getElementById("telefone-usuario")
 
-const mensagemDoUsuario = document.getElementById("txa-mensagem")
+const mensagemDoUsuario = document.getElementsByClassName("txa-mensagem")
 
 const btnDeEnviar = document.getElementById("btn-enviar")
 
 const msgAviso = document.getElementsByClassName("msg-aviso")
 
-
-
-
-
 let dadosDoUsuario = [nomeDoUsuario, emailDoUsuario, telefoneDoUsuario, mensagemDoUsuario]
-
-
+let mensagemQueOhUsuarioDigitou = mensagemDoUsuario[0].value
 function verificandoNome(){
     if (dadosDoUsuario[0].value <= 0) {
         dadosDoUsuario[0].setAttribute("required", "")
         dadosDoUsuario[0].classList.add("nao-validado")
         msgAviso[0].classList.add("msg-aparecendo")
-    }else{
-        dadosDoUsuario[0].classList.add("validado")
     }
 }
 
@@ -33,8 +26,6 @@ function verificandoEmail() {
         dadosDoUsuario[1].setAttribute("required", "")
         dadosDoUsuario[1].classList.add("nao-validado")
         msgAviso[1].classList.add("msg-aparecendo")
-    }else{
-        dadosDoUsuario[0].classList.add("validado")
     }
 }
 
@@ -43,15 +34,26 @@ function validandoNumero() {
         dadosDoUsuario[2].setAttribute("required", "")
         dadosDoUsuario[2].classList.add("nao-validado")
         msgAviso[2].classList.add("msg-aparecendo")
-    }else{
-        dadosDoUsuario[0].classList.add("validado")
     }
+
+function validandoAhMensagemDoUsuario() {
+    if (mensagemDoUsuario[0].value <= 0) {
+    mensagemDoUsuario[0].setAttribute("required", "")
+    mensagemDoUsuario[0].classList.add("nao-validado")
+    msgAviso[3].classList.add("msg-aparecendo")
+}
+}
+ validandoAhMensagemDoUsuario()
+}
+function verificandoForm() {
+    verificandoNome();
+    verificandoEmail();
+    validandoNumero();
 }
 
 btnDeEnviar.addEventListener("click", () => {
-    verificandoNome()
-    verificandoEmail()
-    validandoNumero()
+    verificandoForm()
+    validandoAhMensagemDoUsuario()
 })
 
 
