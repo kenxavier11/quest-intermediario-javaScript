@@ -4,7 +4,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: aqua;
 }
 /* VERIFICAR O ESPAÇAMENTO E O LAYOUT DA INFO E DO FORM, JA COM OS TAMANHOS CORRETOS */
 .suporte-ao-cliente{
@@ -21,7 +20,7 @@
 .suporte-ao-cliente .info{
     color: #ffffff;
     width: 300px;
-    height: 110;
+    height: 110px;
 }
 
 .suporte-ao-cliente .info h1{
